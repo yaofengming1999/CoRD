@@ -1,0 +1,25 @@
+# SCENARIO_DEFAULT with the energy reserve cut from 20% to 5% of capacity.
+#
+# Why this scenario exists. A battery is usable by (order, return pad) exactly
+# when its charge clears rho + E_task, with rho = reserve_ratio * capacity, so
+# the charges that are both usable and *distinguishable* to the actor occupy the
+# band (rho + E_task, C). At reserve_ratio 0.20 that band is at most 0.8C wide
+# before E_task takes its cut, and measurement found the median decision facing
+# exactly one distinguishable battery: over half the decisions have nothing to
+# choose between. The charge time cannot fix this -- charging is linear, so
+# scaling its constant scales the time spent above and below the threshold alike
+# and leaves their ratio fixed, which a 5400 s arm confirmed (the width went
+# down, not up). The reserve ratio bounds the band itself, and is the only
+# config-level knob that enlarges it.
+#
+# Measured effect on meituan-asn, share of decisions with two or more
+# distinguishable batteries: 47.4% at 0.20 -> 55.5% here, and the median charge
+# spread across a decision's usable batteries goes from exactly 0.000 to 0.032.
+#
+# This is a change to the problem, not a tuning knob: 0.05 * 720 Wh leaves 36 Wh
+# of reserve where the default leaves 144. It is here to price what scoring the
+# battery is worth when there is something to score, and should not be mistaken
+# for the scenario the main tables report.
+energy_model:
+  uav:
+    reserve_ratio: 0.05

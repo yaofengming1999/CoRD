@@ -1,0 +1,423 @@
+rl:
+  training: false
+  seed: 42
+
+drone_decision:
+  order_battery_policy: heuristic
+  drone_return_policy: heuristic
+  rebalance:
+    enabled: false
+    interval_s: 120
+  # Optional action-menu pruning for large instances; disabled for HK/full O.
+  # It caps the order dimension alone: the earliest-deadline
+  # urgent_order_multiplier x (drones the pad can dispatch now) orders.
+  candidate_pruning: false
+  urgent_order_multiplier: 2.0
+  return_corridor_km: 0.0   # 0 = no return-pad corridor; pruning caps the order count only
+  # Which input columns reach the networks (algorithm/F2/featmask.py, ids as in
+  # docs/supplement.tex). lossless is the default because the 14 columns it
+  # drops are measured to carry nothing: eight constants, two bitwise duplicates
+  # and four halves of exact affine relations, with every block's rank unchanged
+  # on hongkong and meituan-asn. A paired retrain on hongkong's 30 held-out
+  # instances puts it at +0.34% against full, CI [-12, +82].
+  #
+  # full keeps all 44 and is bit-identical to having no mask at all. EVERY
+  # checkpoint trained before 2026-10-12 needs it: the widths are the ablation,
+  # so loading a 44-column checkpoint under this default fails loudly (which is
+  # the guard working, not a problem to route around).
+  #
+  # aggressive drops 9 more that do carry a little: -0.70% paired, CI
+  # [-136, -5.5], which is why it is not the default.
+  feature_preset: lossless
+  # feature_drop: [C13, T10]   # extra ids to drop on top of the preset
+  # MSRA adapter: reject dispatches whose normalized deadline slack is inside
+  # this risk window when a safer feasible option exists.
+  msra_risk_window_s: 300
+  # Each active policy has its own section because its actor/critic shape and
+  # rollout semantics differ.
+  # AS2_SingleDronePPO: drone-ordered decode, ONE trajectory per episode (team
+  # reward), proposed (o,l)|b actor (interaction_rank). critic_type selects the
+  # value baseline: factor_v (V from the pooled factored menu, policy-independent) |
+  # factor_q ((o,l)|b Q, V = E_pi[Q]) | candidate_q (row Q, F3's critic) |
+  # global_state (pad-set state + own context, as AS1/AS3).
+  order_battery_drone_trajectory_joint_plan_ppo:
+    max_candidates_per_launchpad: 4000000   # overflow guard only;
+    # meituan-peak reaches 274796 feasible triples at a busy pad with pruning
+    # off, and the guard -- not the computation -- was what stopped L3 there.
+    # AS3 is deliberately left at 262144: it pads its rollout to this number.
+    # rank 0: the (o,l) | b split fuses the pair the return energy couples, so
+    # the energy margin is a row effect plus a column effect and an additive
+    # score represents it exactly. Table 4 measured it -- r=0 is at or above
+    # r=8 on all ten cities (hongkong +0.64%, london +0.24%, lade_cq +3.23%)
+    # and its seed spread is an order of magnitude smaller, 6.4 against 71.6.
+    # The default was 8 before that was measured.
+    interaction_rank: 0
+    critic_type: factor_v
+    candidate_pruning: false
+    urgent_order_multiplier: 2.0
+    return_corridor_km: 0.0   # 0 = no return-pad corridor; pruning caps the order count only
+    hidden_dim: 128
+    actor_lr: 0.0003
+    critic_lr: 0.001
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_ratio: 0.2
+    value_coefficient: 0.5
+    entropy_coefficient: 0.01
+    max_grad_norm: 10.0
+    batch_size: 32
+    ppo_epochs: 8
+    time_unit_s: 60
+    reward_scale: 25.0
+    device: cuda
+
+  # F3_FullCombination: full flat (order, return, battery) menu (flat33) scored by
+  # the FullCombination actor; per-drone trajectories; candidate-Q critic.
+  order_battery_drone_ordered_counterfactual_ppo:
+    max_candidates_per_launchpad: 4000000   # overflow guard only;
+    # meituan-peak reaches 274796 feasible triples at a busy pad with pruning
+    # off, and the guard -- not the computation -- was what stopped L3 there.
+    # AS3 is deliberately left at 262144: it pads its rollout to this number.
+    candidate_pruning: false
+    urgent_order_multiplier: 2.0
+    return_corridor_km: 0.0   # 0 = no return-pad corridor; pruning caps the order count only
+    hidden_dim: 128
+    actor_lr: 0.0003
+    critic_lr: 0.001
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_ratio: 0.2
+    value_coefficient: 0.5
+    entropy_coefficient: 0.01
+    max_grad_norm: 10.0
+    batch_size: 32
+    ppo_epochs: 8
+    time_unit_s: 60
+    reward_scale: 25.0
+    device: cuda
+
+  order_battery_moe_pointer_ppo:
+    max_candidates_per_launchpad: 4000000   # overflow guard only;
+    # meituan-peak reaches 274796 feasible triples at a busy pad with pruning
+    # off, and the guard -- not the computation -- was what stopped L3 there.
+    # AS3 is deliberately left at 262144: it pads its rollout to this number.
+    use_ar: true
+    hidden_dim: 128
+    attention_heads: 4
+    attention_layers: 2
+    moe_experts: 3
+    actor_lr: 0.0003
+    critic_lr: 0.001
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_ratio: 0.2
+    value_coefficient: 0.5
+    entropy_coefficient: 0.01
+    max_grad_norm: 10.0
+    batch_size: 32
+    ppo_epochs: 8
+    time_unit_s: 60
+    reward_scale: 25.0
+    device: cuda
+
+  # AS1_MAPPO: synchronous joint step, central critic; candidates scored by the
+  # proposed (o,l)|b actor (olb35 layout), rank = interaction_rank.
+  order_battery_drone_synchronous_mappo:
+    max_candidates_per_launchpad: 4000000   # overflow guard only;
+    # meituan-peak reaches 274796 feasible triples at a busy pad with pruning
+    # off, and the guard -- not the computation -- was what stopped L3 there.
+    # AS3 is deliberately left at 262144: it pads its rollout to this number.
+    # rank 0: the (o,l) | b split fuses the pair the return energy couples, so
+    # the energy margin is a row effect plus a column effect and an additive
+    # score represents it exactly. Table 4 measured it -- r=0 is at or above
+    # r=8 on all ten cities (hongkong +0.64%, london +0.24%, lade_cq +3.23%)
+    # and its seed spread is an order of magnitude smaller, 6.4 against 71.6.
+    # The default was 8 before that was measured.
+    interaction_rank: 0
+    hidden_dim: 128
+    actor_lr: 0.0003
+    critic_lr: 0.001
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_ratio: 0.2
+    value_coefficient: 0.5
+    entropy_coefficient: 0.01
+    max_grad_norm: 10.0
+    batch_size: 8
+    ppo_epochs: 8
+    time_unit_s: 60
+    reward_scale: 25.0
+    device: cuda
+
+  # AS3_GlobalDronesPPO: one joint transition per step; fleet critic (same class and
+  # input as AS1: every available drone's context + pad menu); (o,l)|b actor.
+  order_battery_global_ppo:
+    max_candidates_per_launchpad: 262144
+    # rank 0: the (o,l) | b split fuses the pair the return energy couples, so
+    # the energy margin is a row effect plus a column effect and an additive
+    # score represents it exactly. Table 4 measured it -- r=0 is at or above
+    # r=8 on all ten cities (hongkong +0.64%, london +0.24%, lade_cq +3.23%)
+    # and its seed spread is an order of magnitude smaller, 6.4 against 71.6.
+    # The default was 8 before that was measured.
+    interaction_rank: 0
+    hidden_dim: 128
+    actor_lr: 0.0003
+    critic_lr: 0.001
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_ratio: 0.2
+    value_coefficient: 0.5
+    entropy_coefficient: 0.01
+    max_grad_norm: 10.0
+    batch_size: 32
+    ppo_epochs: 8
+    time_unit_s: 60
+    reward_scale: 25.0
+    device: cuda
+
+  # F1: staged order -> return-launchpad -> battery. Candidate menus stay
+  # small by construction (tens, occasionally low hundreds), so this cap is
+  # a generous safety margin rather than a working-set size like the flat
+  # designs' 16384-65536.
+  order_battery_f1_staged_olb_ppo:
+    # F1 decodes in stages, so this bounds one stage (orders, or pads, or batteries),
+    # not their product; raised for meituan-peak, where a busy pad can hold a few
+    # hundred waiting orders. Its learner does not pad to this number.
+    max_candidates_per_launchpad: 65536
+    candidate_pruning: false
+    urgent_order_multiplier: 2.0
+    return_corridor_km: 0.0   # 0 = no return-pad corridor; pruning caps the order count only
+    hidden_dim: 128
+    actor_lr: 0.0003
+    critic_lr: 0.001
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_ratio: 0.2
+    value_coefficient: 0.5
+    entropy_coefficient: 0.01
+    max_grad_norm: 10.0
+    batch_size: 32
+    ppo_epochs: 8
+    time_unit_s: 60
+    reward_scale: 25.0
+    device: cuda
+
+  # F1b: the same three stages as F1 with no conditioning between them.
+  # Every knob below is F1's value, so the only difference between the two
+  # rows is the decode. See algorithm/F1b_independent_olb.py.
+  order_battery_f1b_independent_olb_ppo:
+    max_candidates_per_launchpad: 65536
+    candidate_pruning: false
+    urgent_order_multiplier: 2.0
+    return_corridor_km: 0.0   # 0 = no return-pad corridor; pruning caps the order count only
+    hidden_dim: 128
+    actor_lr: 0.0003
+    critic_lr: 0.001
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_ratio: 0.2
+    value_coefficient: 0.5
+    entropy_coefficient: 0.01
+    max_grad_norm: 10.0
+    batch_size: 32
+    ppo_epochs: 8
+    time_unit_s: 60
+    reward_scale: 25.0
+    device: cuda
+
+  # F2_Separable (main proposal): F3 decode on the factored (o,l)|b menu with the
+  # separable actor; interaction_rank = rank of the bilinear coupling.
+  # critic_type (default factor_v: actor and critic both consume the factored
+  # menu; V(s) = f(context, pooled (o,l) rows, pooled battery rows), independent of
+  # the policy): factor_q ((o,l)|b Q, V = E_pi[Q]) | candidate_q (row Q, F3's critic;
+  # rebuilds the rows) | global_state (pad-set state + own context, no candidate
+  # info, as AS1/AS3). CLI --critic-type overrides.
+  # F0_TwoStage: the dispatch half reuses the F2 learner on a menu with the return
+  # axis collapsed; the return half is its own PPO over the feasible pads. Both
+  # blocks mirror order_battery_d2_separable_ppo so the comparison is on the
+  # decomposition, not on the hyperparameters.
+  order_battery_f0_two_stage_ppo:
+    max_candidates_per_launchpad: 4000000   # overflow guard only;
+    # meituan-peak reaches 274796 feasible triples at a busy pad with pruning
+    # off, and the guard -- not the computation -- was what stopped L3 there.
+    # AS3 is deliberately left at 262144: it pads its rollout to this number.
+    critic_type: factor_v
+    candidate_pruning: false
+    urgent_order_multiplier: 2.0
+    return_corridor_km: 0.0   # 0 = no return-pad corridor; pruning caps the order count only
+    hidden_dim: 128
+    actor_lr: 0.0003
+    critic_lr: 0.001
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_ratio: 0.2
+    value_coefficient: 0.5
+    entropy_coefficient: 0.01
+    # rank 0: the (o,l) | b split fuses the pair the return energy couples, so
+    # the energy margin is a row effect plus a column effect and an additive
+    # score represents it exactly. Table 4 measured it -- r=0 is at or above
+    # r=8 on all ten cities (hongkong +0.64%, london +0.24%, lade_cq +3.23%)
+    # and its seed spread is an order of magnitude smaller, 6.4 against 71.6.
+    # The default was 8 before that was measured.
+    interaction_rank: 0
+    max_grad_norm: 10.0
+    batch_size: 32
+    ppo_epochs: 8
+    time_unit_s: 60
+    reward_scale: 25.0
+    device: cuda
+
+  drone_return_f0_two_stage_ppo:
+    # the return menu is at most one row per launchpad, and the largest city has
+    # 150 (the meituan set); 128 silently capped it and killed those 18 cells on
+    # 2026-10-01. This is a pathology guard, not a tuning knob, so leave room.
+    max_return_launchpads: 512
+    hidden_dim: 128
+    actor_lr: 0.0003
+    critic_lr: 0.001
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_ratio: 0.2
+    value_coefficient: 0.5
+    entropy_coefficient: 0.01
+    max_grad_norm: 10.0
+    batch_size: 32
+    ppo_epochs: 8
+    time_unit_s: 60
+    reward_scale: 25.0
+    device: cuda
+
+  # F2pro: three blocks (orders | return pads | batteries), additive, with the
+  # bilinear coupling on the (order, pad) pair only -- the pair the return energy
+  # couples.
+  #
+  # rank 4, measured rather than derived. A planar inner product needs rank 2,
+  # which is what squared distance costs, and that was the first guess. The sln
+  # sweep says otherwise -- 12675, 12656, 13622, 15447, 15295, 15176, 15308 for
+  # r = 0, 1, 2, 4, 8, 16, 32, three seeds each: the return energy is not pure
+  # geometry, it follows the distance rather than its square and carries the
+  # wind and the payload, none of which a planar inner product reaches.
+  #
+  # The default was 8 while 8 was the largest rank measured and the curve still
+  # looked like it was climbing. It is not: r=16 and r=32 sit below r=4, every
+  # rank at or above 4 is inside one seed spread of the others, and ssn agrees
+  # (20448 at r=4 against 20008 at r=16). So the plateau starts at 4 and 4 is
+  # the default -- the smallest rank that buys the whole effect, which is also
+  # what the weight-space spectrum predicts from 93.4% of the learned
+  # interaction's energy sitting in four directions (rank_analysis/step5).
+  #
+  # Anything at or above 4 would do; 4 is chosen because a smaller bilinear
+  # block is cheaper and harder to overfit, not because 8 was measurably worse.
+  order_battery_f2pro_ppo:
+    # overflow guard only, matching the F2 section: shenzhen core with pruning
+    # off reaches 281460 feasible triples at a busy pad, and the guard -- not
+    # the computation -- was what stopped the rank sweep there.
+    max_candidates_per_launchpad: 4000000
+    interaction_rank: 4
+    hidden_dim: 128
+    actor_lr: 0.0003
+    critic_lr: 0.001
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_ratio: 0.2
+    value_coefficient: 0.5
+    entropy_coefficient: 0.01
+    max_grad_norm: 10.0
+    batch_size: 32
+    ppo_epochs: 8
+    time_unit_s: 60
+    reward_scale: 25.0
+    candidate_pruning: false
+    urgent_order_multiplier: 2.0
+    device: cuda
+
+  order_battery_d2_separable_ppo:
+    max_candidates_per_launchpad: 4000000   # overflow guard only;
+    # meituan-peak reaches 274796 feasible triples at a busy pad with pruning
+    # off, and the guard -- not the computation -- was what stopped L3 there.
+    # AS3 is deliberately left at 262144: it pads its rollout to this number.
+    critic_type: factor_v
+    candidate_pruning: false
+    urgent_order_multiplier: 2.0
+    return_corridor_km: 0.0   # 0 = no return-pad corridor; pruning caps the order count only
+    hidden_dim: 128
+    actor_lr: 0.0003
+    critic_lr: 0.001
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_ratio: 0.2
+    value_coefficient: 0.5
+    entropy_coefficient: 0.01
+    # rank 0: the (o,l) | b split fuses the pair the return energy couples, so
+    # the energy margin is a row effect plus a column effect and an additive
+    # score represents it exactly. Table 4 measured it -- r=0 is at or above
+    # r=8 on all ten cities (hongkong +0.64%, london +0.24%, lade_cq +3.23%)
+    # and its seed spread is an order of magnitude smaller, 6.4 against 71.6.
+    # The default was 8 before that was measured.
+    interaction_rank: 0
+    max_grad_norm: 10.0
+    batch_size: 32
+    ppo_epochs: 8
+    time_unit_s: 60
+    reward_scale: 25.0
+    device: cuda
+
+  # L3_MAPDP: MAPDP-Pointer + MAPPO. Entity tokens (orders | return pads |
+  # batteries) per pad, transformer encoder, per-drone 3-step pointer decode,
+  # synchronous step with rule conflict resolution, GlobalStateCritic.
+  order_battery_mapdp_pointer:
+    max_candidates_per_launchpad: 4000000   # overflow guard only;
+    # meituan-peak reaches 274796 feasible triples at a busy pad with pruning
+    # off, and the guard -- not the computation -- was what stopped L3 there.
+    # AS3 is deliberately left at 262144: it pads its rollout to this number.
+    candidate_pruning: false
+    urgent_order_multiplier: 2.0
+    return_corridor_km: 0.0   # 0 = no return-pad corridor; pruning caps the order count only
+    hidden_dim: 128
+    attention_heads: 4
+    encoder_layers: 2
+    actor_lr: 0.0001
+    critic_lr: 0.001
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_ratio: 0.2
+    value_coefficient: 0.5
+    entropy_coefficient: 0.01
+    max_grad_norm: 10.0
+    batch_size: 32
+    ppo_epochs: 8
+    time_unit_s: 60
+    reward_scale: 25.0
+    device: cuda
+
+  # L2_MSRA: MSRA-Matching + IPPO. Per-pad bipartite order matching (utility with
+  # on-time bonus lambda_p, drone cost, gamma*V), IPPO return-pad policy, Graph
+  # Coordinator risk constraint (G) active after gc_warmup_episodes.
+  order_battery_msra:
+    max_candidates_per_launchpad: 4000000   # overflow guard only;
+    # meituan-peak reaches 274796 feasible triples at a busy pad with pruning
+    # off, and the guard -- not the computation -- was what stopped L3 there.
+    # AS3 is deliberately left at 262144: it pads its rollout to this number.
+    candidate_pruning: false
+    urgent_order_multiplier: 2.0
+    return_corridor_km: 0.0   # 0 = no return-pad corridor; pruning caps the order count only
+    hidden_dim: 128
+    lambda_p: 3.0
+    drone_cost_per_min: 0.0
+    risk_threshold_G: 0.5
+    gc_warmup_episodes: 30
+    gc_lambda_reg: 0.2
+    gc_lr: 0.001
+    actor_lr: 0.001
+    critic_lr: 0.001
+    gamma: 0.99
+    gae_lambda: 0.95
+    clip_ratio: 0.2
+    value_coefficient: 0.5
+    entropy_coefficient: 0.01
+    max_grad_norm: 10.0
+    batch_size: 64
+    ppo_epochs: 8
+    time_unit_s: 60
+    reward_scale: 25.0
+    device: cuda

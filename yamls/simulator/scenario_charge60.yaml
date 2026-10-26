@@ -1,0 +1,19 @@
+# SCENARIO_DEFAULT with the battery charge constant moved from 1800 s to 3600 s
+# (60 min empty-to-full, 2x the base).
+#
+# Charging is linear and prorated by the deficit: a pack at charge q reaches
+# full in full_charge_seconds * (C - q)/C, so this constant sets the whole
+# recharge clock. The episode horizon is 10800 s, which makes the usable
+# cycles per battery about ~3 here against about 6 at the base.
+#
+# What this arm is and is not. It changes how scarce a *charged* battery is in
+# time, so it moves the supply of the B dimension of the menu. It does NOT make
+# the batteries at a pad more distinguishable to the actor: the band of charges
+# that are both usable and distinguishable is bounded by the reserve ratio, not
+# by the clock, and scaling a linear charge curve scales the time spent above
+# and below the usable threshold alike. A 5400 s arm was run for that question
+# and the band narrowed rather than widened -- see scenario_lowreserve.yaml,
+# which is the knob that does widen it. Table 1.4 is about supply, table
+# 4.x's reserve arm is about distinguishability, and they are not substitutes.
+service_times:
+  battery_charge_seconds: 3600

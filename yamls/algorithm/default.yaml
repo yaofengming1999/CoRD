@@ -1,0 +1,12 @@
+rl:
+  training: false
+  seed: 42
+  episodes: 1
+
+wandb:
+  mode: disabled
+  project: drones
+
+cost:
+  drone_energy_cost_per_Wh: 0.0
+  drone_energy_penalty_weight: 0.0

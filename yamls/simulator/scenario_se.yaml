@@ -1,0 +1,4 @@
+simulation:
+  horizon_seconds: 10800
+instance:
+  city: se

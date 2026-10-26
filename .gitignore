@@ -1,0 +1,97 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Virtualenvs
+.venv/
+venv/
+/env/
+
+# Build / dist
+build/
+dist/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Generated outputs (kept in results/, not source)
+*.gif
+*.png
+*.mp4
+*.jsonl
+!writing/**/*.png
+
+# Local overrides
+*.local.yaml
+.env
+
+# Per-machine tool state
+.claude/settings.local.json
+
+# Local map graph files
+data/maps/*.pkl
+data/local/
+records/*
+records_scratch/
+!records/.gitkeep
+wandb/
+
+*.pdf
+data/instances/
+data/instances_v12/
+
+data/instances_v10_high/
+data/instances_v10_mid/
+data/
+
+cache/
+draft/
+
+data/instances_drone/
+data/instances_meituan/
+data/instance_generator_meituan/*.csv
+data/instance_generator_fooddelivery/data_se/
+data/instance_generator_fooddelivery/data_sg/
+
+data/archive/
+instances_exact/
+
+# raw LaDe source data (same policy as meituan csv)
+data/instance_generator_lade/*.csv
+# LaTeX build artifacts
+docs/*.aux
+docs/*.log
+docs/*.out
+logs/
+
+docs/*.fdb_latexmk
+docs/*.fls
+records_rank/
+records_rank
+records_efficiency/
+records_scenario/
+records_transfer/
+rank_analysis
+
+# waiting_analysis measurement output: 340 MB of per-decision rows, fully
+# reproducible from the scripts beside them (measure.py, menu_batteries.py,
+# menu_choice_width.py). The figures they feed are kept.
+waiting_analysis/*.csv
+records_rank_repro/
+docs/*.synctex.gz
+records_featmask/
+records_f30/
+
+# Local credentials, tool state, and copied repository backup
+.env.*
+!.env.example
+.aws/
+.agents/
+.codex/
+.git-backup-drones/
