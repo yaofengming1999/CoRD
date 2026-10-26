@@ -1,0 +1,63 @@
+_provenance: 'Snapshot of SCENARIO_DEFAULT at generation time. NOT read by the simulator:
+  runtime physics/horizon come from data/instance_generator_synthetic/scenario.py
+  via simulator.utils.config.load_config. Kept so the physics an instance was generated
+  under can be audited later.'
+source: meituan_planar_approximation
+calibration_version: drone_only_v3_3kw_720wh
+runtime_horizon_seconds: 10800
+arrival_window_seconds: 1800
+generator_assumptions:
+  drone_speed_mps: 13.8888888889
+  drone_max_range_m: 24000.0
+  drone_empty_mass_kg: 15.0
+  drone_max_payload_kg: 10.0
+  battery_capacity_Wh: 720.0
+order_revenue_model:
+  base_min: 5.0
+  base_max: 15.0
+  rate_per_km: 2.0
+  rate_per_kg: 0.5
+min_order_distance_km: 0.3
+scenario_default:
+  simulation:
+    horizon_seconds: 10800
+    terminal_slack_seconds: 3600
+    delta_t_seconds: 60
+    time_advancement: fixed_step
+    launchpad_capacity: unlimited
+    seed: 42
+  event_driven:
+    max_delta_t_seconds: 60
+  vehicles:
+    uavs:
+      speed_mps: 13.8888888889
+      max_range_m: 24000.0
+      battery_capacity: 720.0
+      empty_mass_kg: 15.0
+      max_payload_kg: 10.0
+  energy_model:
+    uav:
+      mode: paper
+      speed_mps: 13.8888888889
+      calibration_version: drone_only_v3_3kw_720wh
+      mass_power_intercept_W: 3000.0
+      mass_power_slope_W_per_kg: 70.0
+      wind_linear_coeff: 0.5
+      wind_beta1: -0.0002131
+      wind_beta2: 0.01722
+      wind_beta3: -0.5592
+      wind_constant: 9.595
+      battery_capacity_Wh: 720.0
+      max_payload_kg: 10.0
+      reserve_ratio: 0.2
+      safety_margin_Wh: 0.0
+      wind_airspeed_model: vector
+      wind_airspeed_cap_mps: 30.0
+  batteries:
+    capacity_override_Wh: 720.0
+  service_times:
+    delivery_seconds: 0
+    battery_charge_seconds: 1800
+  cost:
+    lateness_penalty_per_min: 3.0
+    drone_energy_cost_per_Wh: 0.0

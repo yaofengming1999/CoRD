@@ -1,0 +1,53 @@
+instance_id: seed2176_meituan-ssa_1730-1800_lp150_ep300_orders1418_drone_only_v3_3kw_720wh_19b8ff4c
+city: meituan-ssa
+split: test
+seed: 2176
+horizon_seconds: 10800
+arrival_window_seconds: 1800
+order_count: 1418
+source_order_count_in_window: 11341
+dropped_short_orders_lt_min_distance: 322
+min_order_distance_km: 0.3
+source_file: data/instance_generator_meituan/orders_combined_large.csv
+launchpads: 150
+delivery_endpoints: 300
+drones: 150
+batteries: 300
+approximation:
+  pickup_method: kmeans_150
+  delivery_method: kmeans_300
+  cluster_fit_inlier_quantile: 0.005
+  coordinate_scale_km_per_source_unit: 1.5
+  order_sampling: uniform_without_replacement_within_time_window
+  sampling_fraction: 0.125
+  cross_split_order_reuse: false
+  split_partition:
+    method: shared_permutation_disjoint_pools
+    partition_seed: 2026
+    fractions_train_valid_test:
+    - 0.7
+    - 0.15
+    - 0.15
+    pool_size_this_split: 1653
+    instance_sample_seed: 2176
+  missing_size_weight:
+    size: 1.0
+    weight_distribution_kg:
+      type: uniform
+      min: 0.2
+      max: 10.0
+variant:
+  code: SSA
+  battery_count: Standard
+  drone_count: Standard
+  weather_mode: Adverse
+  base_city: meituan
+  base_instance: seed2176_meituan_1730-1800_lp150_ep300_orders1418_drone_only_v3_3kw_720wh_19b8ff4c
+  changed_files:
+  - weather.yaml
+  changes:
+    weather:
+      enable: true
+      wind_speed_mps: 8.0
+      wind_direction_deg: 225.0
+  unchanged_files: relative symlinks into base_instance

@@ -95,3 +95,10 @@ records_f30/
 .agents/
 .codex/
 .git-backup-drones/
+
+# Track Meituan datasets and their variant aliases
+!/data/
+/data/*
+!/data/instances_drone/
+/data/instances_drone/*
+!/data/instances_drone/meituan*

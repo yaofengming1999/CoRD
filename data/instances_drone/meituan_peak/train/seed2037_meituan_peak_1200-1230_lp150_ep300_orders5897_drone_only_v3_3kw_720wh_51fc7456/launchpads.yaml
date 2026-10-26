@@ -1,0 +1,1050 @@
+- launchpad_id: lp_0
+  current_location:
+    lat: 22.2887823
+    lon: 114.1832294
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.2432959531935641
+- launchpad_id: lp_1
+  current_location:
+    lat: 22.2910394
+    lon: 114.2633319
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 3.2624594577406567
+- launchpad_id: lp_2
+  current_location:
+    lat: 22.3374466
+    lon: 114.1306084
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 2.5851652428295844
+- launchpad_id: lp_3
+  current_location:
+    lat: 22.3313198
+    lon: 114.1930829
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.3355097195429588
+- launchpad_id: lp_4
+  current_location:
+    lat: 22.2530314
+    lon: 114.1259678
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.16852860746613527
+- launchpad_id: lp_5
+  current_location:
+    lat: 22.2930383
+    lon: 114.1470486
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 2.1686134017340426
+- launchpad_id: lp_6
+  current_location:
+    lat: 22.2704025
+    lon: 114.1597216
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.7090920653763805
+- launchpad_id: lp_7
+  current_location:
+    lat: 22.3397113
+    lon: 114.172989
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.3704873550547982
+- launchpad_id: lp_8
+  current_location:
+    lat: 22.2912889
+    lon: 114.2157629
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.9284972335870094
+- launchpad_id: lp_9
+  current_location:
+    lat: 22.3108254
+    lon: 114.1982562
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.1589892523265427
+- launchpad_id: lp_10
+  current_location:
+    lat: 22.31385
+    lon: 114.1803164
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.8220168316621794
+- launchpad_id: lp_11
+  current_location:
+    lat: 22.3216323
+    lon: 114.1576323
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 7.9971593920250985
+- launchpad_id: lp_12
+  current_location:
+    lat: 22.2424086
+    lon: 114.1642937
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.09539355139592563
+- launchpad_id: lp_13
+  current_location:
+    lat: 22.3589065
+    lon: 114.1432091
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 4.079664214699086
+- launchpad_id: lp_14
+  current_location:
+    lat: 22.2722114
+    lon: 114.1896262
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 2.222669747525067
+- launchpad_id: lp_15
+  current_location:
+    lat: 22.3194801
+    lon: 114.1320642
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.7854069064931211
+- launchpad_id: lp_16
+  current_location:
+    lat: 22.2722143
+    lon: 114.1810463
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.6073389438873932
+- launchpad_id: lp_17
+  current_location:
+    lat: 22.2777971
+    lon: 114.1592478
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 2.855446971784707
+- launchpad_id: lp_18
+  current_location:
+    lat: 22.3142112
+    lon: 114.1654756
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.42291141118860365
+- launchpad_id: lp_19
+  current_location:
+    lat: 22.2091267
+    lon: 114.1212176
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.5469230280033069
+- launchpad_id: lp_20
+  current_location:
+    lat: 22.2772724
+    lon: 114.1686803
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.7408899158416891
+- launchpad_id: lp_21
+  current_location:
+    lat: 22.3179569
+    lon: 114.1715479
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.8156572615691178
+- launchpad_id: lp_22
+  current_location:
+    lat: 22.3074658
+    lon: 114.1878191
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.7584211307315625
+- launchpad_id: lp_23
+  current_location:
+    lat: 22.3467008
+    lon: 114.1276685
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 2.0414219998728087
+- launchpad_id: lp_24
+  current_location:
+    lat: 22.2487339
+    lon: 114.1436926
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.13673075700082674
+- launchpad_id: lp_25
+  current_location:
+    lat: 22.2581762
+    lon: 114.2141538
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.3529561401649248
+- launchpad_id: lp_26
+  current_location:
+    lat: 22.3374968
+    lon: 114.1263278
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 2.050961355012401
+- launchpad_id: lp_27
+  current_location:
+    lat: 22.2811645
+    lon: 114.216286
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 2.5279291119920293
+- launchpad_id: lp_28
+  current_location:
+    lat: 22.2856846
+    lon: 114.1464192
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.8188370466156487
+- launchpad_id: lp_29
+  current_location:
+    lat: 22.261881
+    lon: 114.174592
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.7027324952833188
+- launchpad_id: lp_30
+  current_location:
+    lat: 22.2714573
+    lon: 114.1336545
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.5628219532359612
+- launchpad_id: lp_31
+  current_location:
+    lat: 22.2979531
+    lon: 114.2470651
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.704364784940538
+- launchpad_id: lp_32
+  current_location:
+    lat: 22.3484719
+    lon: 114.1939846
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.5405634579102452
+- launchpad_id: lp_33
+  current_location:
+    lat: 22.2692463
+    lon: 114.1675495
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.9730142242384414
+- launchpad_id: lp_34
+  current_location:
+    lat: 22.3613921
+    lon: 114.1547651
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.5119453924914675
+- launchpad_id: lp_35
+  current_location:
+    lat: 22.2883167
+    lon: 114.2368181
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.0874864859135522
+- launchpad_id: lp_36
+  current_location:
+    lat: 22.2272536
+    lon: 114.1430538
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.22576473830369065
+- launchpad_id: lp_37
+  current_location:
+    lat: 22.2777365
+    lon: 114.1372744
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.3927458503805141
+- launchpad_id: lp_38
+  current_location:
+    lat: 22.3641775
+    lon: 114.1210818
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.2814533737519342
+- launchpad_id: lp_39
+  current_location:
+    lat: 22.2492024
+    lon: 114.192601
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.023890784982935
+- launchpad_id: lp_40
+  current_location:
+    lat: 22.330509
+    lon: 114.1442609
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.20032645793144382
+- launchpad_id: lp_41
+  current_location:
+    lat: 22.3406422
+    lon: 114.1470483
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.982553579378034
+- launchpad_id: lp_42
+  current_location:
+    lat: 22.3079136
+    lon: 114.1452918
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.484959616729909
+- launchpad_id: lp_43
+  current_location:
+    lat: 22.2677603
+    lon: 114.1856243
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 2.496131261526721
+- launchpad_id: lp_44
+  current_location:
+    lat: 22.305445
+    lon: 114.1414952
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.0016322896572192
+- launchpad_id: lp_45
+  current_location:
+    lat: 22.2816118
+    lon: 114.1789022
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.7616009157780932
+- launchpad_id: lp_46
+  current_location:
+    lat: 22.2956518
+    lon: 114.1325134
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.7695079812604667
+- launchpad_id: lp_47
+  current_location:
+    lat: 22.3057615
+    lon: 114.1701358
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.20986581307103638
+- launchpad_id: lp_48
+  current_location:
+    lat: 22.2271262
+    lon: 114.1904414
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.2512030186759375
+- launchpad_id: lp_49
+  current_location:
+    lat: 22.3385562
+    lon: 114.1783611
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.7599686261208742
+- launchpad_id: lp_50
+  current_location:
+    lat: 22.3258257
+    lon: 114.1557002
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 3.122548915693299
+- launchpad_id: lp_51
+  current_location:
+    lat: 22.2527135
+    lon: 114.207382
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.1462701121404193
+- launchpad_id: lp_52
+  current_location:
+    lat: 22.2251267
+    lon: 114.1738234
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.5373836728637144
+- launchpad_id: lp_53
+  current_location:
+    lat: 22.2615047
+    lon: 114.1846986
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.8044856167723061
+- launchpad_id: lp_54
+  current_location:
+    lat: 22.3000928
+    lon: 114.1861362
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.457889046700443
+- launchpad_id: lp_55
+  current_location:
+    lat: 22.2362735
+    lon: 114.2315928
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.04451699065143196
+- launchpad_id: lp_56
+  current_location:
+    lat: 22.3138626
+    lon: 114.1263053
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.6073389438873932
+- launchpad_id: lp_57
+  current_location:
+    lat: 22.3247356
+    lon: 114.1832145
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.74888177559197
+- launchpad_id: lp_58
+  current_location:
+    lat: 22.2822081
+    lon: 114.2049633
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.29572000932736947
+- launchpad_id: lp_59
+  current_location:
+    lat: 22.2883321
+    lon: 114.148055
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.157441756937231
+- launchpad_id: lp_60
+  current_location:
+    lat: 22.3221031
+    lon: 114.1943791
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.484959616729909
+- launchpad_id: lp_61
+  current_location:
+    lat: 22.2989059
+    lon: 114.1568766
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.38793377567676424
+- launchpad_id: lp_62
+  current_location:
+    lat: 22.2744901
+    lon: 114.1883614
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 2.795031055900621
+- launchpad_id: lp_63
+  current_location:
+    lat: 22.3041534
+    lon: 114.2062049
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.27664129904818435
+- launchpad_id: lp_64
+  current_location:
+    lat: 22.238512
+    lon: 114.1535769
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.588260233608208
+- launchpad_id: lp_65
+  current_location:
+    lat: 22.3175732
+    lon: 114.1246308
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.25438280372246835
+- launchpad_id: lp_66
+  current_location:
+    lat: 22.2836253
+    lon: 114.1754509
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.2369363831005022
+- launchpad_id: lp_67
+  current_location:
+    lat: 22.2564529
+    lon: 114.1584743
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.7854069064931211
+- launchpad_id: lp_68
+  current_location:
+    lat: 22.2597334
+    lon: 114.1529213
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.41655184109554194
+- launchpad_id: lp_69
+  current_location:
+    lat: 22.2617935
+    lon: 114.1991433
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.42291141118860365
+- launchpad_id: lp_70
+  current_location:
+    lat: 22.2690225
+    lon: 114.1770721
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 3.5486401119284334
+- launchpad_id: lp_71
+  current_location:
+    lat: 22.2376639
+    lon: 114.1788587
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.3116189345600237
+- launchpad_id: lp_72
+  current_location:
+    lat: 22.2954878
+    lon: 114.1838606
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 2.5660865325503996
+- launchpad_id: lp_73
+  current_location:
+    lat: 22.3075458
+    lon: 114.1987254
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.7504292709812816
+- launchpad_id: lp_74
+  current_location:
+    lat: 22.3368887
+    lon: 114.1635627
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.39747313081635677
+- launchpad_id: lp_75
+  current_location:
+    lat: 22.2499663
+    lon: 114.1535112
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.8585419625633307
+- launchpad_id: lp_76
+  current_location:
+    lat: 22.3064494
+    lon: 114.1205
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.4388103364212579
+- launchpad_id: lp_77
+  current_location:
+    lat: 22.2640418
+    lon: 114.1804891
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.6613952896784177
+- launchpad_id: lp_78
+  current_location:
+    lat: 22.2120966
+    lon: 114.14421
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.4833273270726899
+- launchpad_id: lp_79
+  current_location:
+    lat: 22.2860799
+    lon: 114.2366926
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.13355097195429588
+- launchpad_id: lp_80
+  current_location:
+    lat: 22.3130815
+    lon: 114.2275812
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.13037118690776503
+- launchpad_id: lp_81
+  current_location:
+    lat: 22.2785785
+    lon: 114.2101168
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.2591948784262184
+- launchpad_id: lp_82
+  current_location:
+    lat: 22.3091422
+    lon: 114.1348026
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.8839802429355775
+- launchpad_id: lp_83
+  current_location:
+    lat: 22.3075005
+    lon: 114.1526542
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.767960485871155
+- launchpad_id: lp_84
+  current_location:
+    lat: 22.2534249
+    lon: 114.1713404
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.43563055137472706
+- launchpad_id: lp_85
+  current_location:
+    lat: 22.2919558
+    lon: 114.1982514
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.480147542026159
+- launchpad_id: lp_86
+  current_location:
+    lat: 22.2847177
+    lon: 114.20326
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.7870391961503402
+- launchpad_id: lp_87
+  current_location:
+    lat: 22.2799466
+    lon: 114.1716304
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.9253174485404786
+- launchpad_id: lp_88
+  current_location:
+    lat: 22.3213876
+    lon: 114.170687
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.3434167850253323
+- launchpad_id: lp_89
+  current_location:
+    lat: 22.3048951
+    lon: 114.2005413
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.6168782990269858
+- launchpad_id: lp_90
+  current_location:
+    lat: 22.3339966
+    lon: 114.2290637
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.07949462616327135
+- launchpad_id: lp_91
+  current_location:
+    lat: 22.2968232
+    lon: 114.2028495
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.41019227100248024
+- launchpad_id: lp_92
+  current_location:
+    lat: 22.2661295
+    lon: 114.1372317
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.7854069064931211
+- launchpad_id: lp_93
+  current_location:
+    lat: 22.3370546
+    lon: 114.1456107
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.4960464672588133
+- launchpad_id: lp_94
+  current_location:
+    lat: 22.2686751
+    lon: 114.149692
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.3704873550547982
+- launchpad_id: lp_95
+  current_location:
+    lat: 22.3141864
+    lon: 114.1476529
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 2.5279291119920293
+- launchpad_id: lp_96
+  current_location:
+    lat: 22.2874194
+    lon: 114.1929999
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.3179785046530854
+- launchpad_id: lp_97
+  current_location:
+    lat: 22.2796186
+    lon: 114.153381
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.3211582896996163
+- launchpad_id: lp_98
+  current_location:
+    lat: 22.2983033
+    lon: 114.2635583
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 2.8077501960867446
+- launchpad_id: lp_99
+  current_location:
+    lat: 22.3584518
+    lon: 114.1498974
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.41337205604901106
+- launchpad_id: lp_100
+  current_location:
+    lat: 22.3195998
+    lon: 114.1437474
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.5977995887478006
+- launchpad_id: lp_101
+  current_location:
+    lat: 22.2920488
+    lon: 114.1372757
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.915778093400886
+- launchpad_id: lp_102
+  current_location:
+    lat: 22.3319012
+    lon: 114.1848225
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.588260233608208
+- launchpad_id: lp_103
+  current_location:
+    lat: 22.2725332
+    lon: 114.1249648
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.071587560680898
+- launchpad_id: lp_104
+  current_location:
+    lat: 22.3134904
+    lon: 114.1359807
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.8490026074237381
+- launchpad_id: lp_105
+  current_location:
+    lat: 22.3013786
+    lon: 114.1280589
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.05405634579102452
+- launchpad_id: lp_106
+  current_location:
+    lat: 22.2739532
+    lon: 114.2069201
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.3147987196065546
+- launchpad_id: lp_107
+  current_location:
+    lat: 22.2810938
+    lon: 114.1469905
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.068407775634367
+- launchpad_id: lp_108
+  current_location:
+    lat: 22.2763873
+    lon: 114.1775717
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.4260911962351345
+- launchpad_id: lp_109
+  current_location:
+    lat: 22.3543634
+    lon: 114.1693391
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.11447226167511075
+- launchpad_id: lp_110
+  current_location:
+    lat: 22.2669282
+    lon: 114.1821376
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.5564623831428995
+- launchpad_id: lp_111
+  current_location:
+    lat: 22.3438028
+    lon: 114.1247707
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.3641277849617366
+- launchpad_id: lp_112
+  current_location:
+    lat: 22.3306819
+    lon: 114.1744912
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.4674284018400356
+- launchpad_id: lp_113
+  current_location:
+    lat: 22.3238415
+    lon: 114.1551137
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.812477476522587
+- launchpad_id: lp_114
+  current_location:
+    lat: 22.264786
+    lon: 114.214792
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.699552710236788
+- launchpad_id: lp_115
+  current_location:
+    lat: 22.3057928
+    lon: 114.2469663
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.8871600279821084
+- launchpad_id: lp_116
+  current_location:
+    lat: 22.36126
+    lon: 114.1707432
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.07949462616327135
+- launchpad_id: lp_117
+  current_location:
+    lat: 22.3285171
+    lon: 114.1525355
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.14309032709388844
+- launchpad_id: lp_118
+  current_location:
+    lat: 22.3266059
+    lon: 114.1700008
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.3927458503805141
+- launchpad_id: lp_119
+  current_location:
+    lat: 22.2985949
+    lon: 114.1484579
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 3.0048968689716573
+- launchpad_id: lp_120
+  current_location:
+    lat: 22.3355069
+    lon: 114.1730091
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.5723613083755538
+- launchpad_id: lp_121
+  current_location:
+    lat: 22.3279482
+    lon: 114.1364429
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.12401161681470332
+- launchpad_id: lp_122
+  current_location:
+    lat: 22.3103132
+    lon: 114.1582429
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.2146778877747864
+- launchpad_id: lp_123
+  current_location:
+    lat: 22.2647941
+    lon: 114.1904483
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.7154516354694422
+- launchpad_id: lp_124
+  current_location:
+    lat: 22.3319517
+    lon: 114.1583623
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.6931931401437262
+- launchpad_id: lp_125
+  current_location:
+    lat: 22.266166
+    lon: 114.1720697
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.5390159625209334
+- launchpad_id: lp_126
+  current_location:
+    lat: 22.2690052
+    lon: 114.201371
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.4928666822122824
+- launchpad_id: lp_127
+  current_location:
+    lat: 22.3256808
+    lon: 114.151852
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.0175312148898734
+- launchpad_id: lp_128
+  current_location:
+    lat: 22.3140595
+    lon: 114.2059356
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.33705721493227053
+- launchpad_id: lp_129
+  current_location:
+    lat: 22.2592693
+    lon: 114.1265118
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.0652279905878361
+- launchpad_id: lp_130
+  current_location:
+    lat: 22.2768698
+    lon: 114.1864877
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.1892396074025395
+- launchpad_id: lp_131
+  current_location:
+    lat: 22.2961078
+    lon: 114.2083676
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.4769677569796282
+- launchpad_id: lp_132
+  current_location:
+    lat: 22.265769
+    lon: 114.1584527
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.7758675513535285
+- launchpad_id: lp_133
+  current_location:
+    lat: 22.3469971
+    lon: 114.1177591
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.28936043923430776
+- launchpad_id: lp_134
+  current_location:
+    lat: 22.2340398
+    lon: 114.1408299
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.13037118690776503
+- launchpad_id: lp_135
+  current_location:
+    lat: 22.2915137
+    lon: 114.1775165
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.5755410934220846
+- launchpad_id: lp_136
+  current_location:
+    lat: 22.2536445
+    lon: 114.2229373
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.19714667288491297
+- launchpad_id: lp_137
+  current_location:
+    lat: 22.3256619
+    lon: 114.1410133
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.4388103364212579
+- launchpad_id: lp_138
+  current_location:
+    lat: 22.29511
+    lon: 114.1928071
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.10811269158204904
+- launchpad_id: lp_139
+  current_location:
+    lat: 22.2726764
+    lon: 114.1656606
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.0175312148898734
+- launchpad_id: lp_140
+  current_location:
+    lat: 22.273126
+    lon: 114.1841949
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.5008585419625633
+- launchpad_id: lp_141
+  current_location:
+    lat: 22.3080313
+    lon: 114.1664946
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 1.3482288597290821
+- launchpad_id: lp_142
+  current_location:
+    lat: 22.2554809
+    lon: 114.1550982
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.6709346448180102
+- launchpad_id: lp_143
+  current_location:
+    lat: 22.2388255
+    lon: 114.1865922
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.38475399063023336
+- launchpad_id: lp_144
+  current_location:
+    lat: 22.3018701
+    lon: 114.1685689
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.1112924766285799
+- launchpad_id: lp_145
+  current_location:
+    lat: 22.3257613
+    lon: 114.1258804
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.655035719585356
+- launchpad_id: lp_146
+  current_location:
+    lat: 22.2994555
+    lon: 114.1299344
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.6709346448180102
+- launchpad_id: lp_147
+  current_location:
+    lat: 22.2828763
+    lon: 114.1612989
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.2798210840947152
+- launchpad_id: lp_148
+  current_location:
+    lat: 22.2113093
+    lon: 114.1239647
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.3211582896996163
+- launchpad_id: lp_149
+  current_location:
+    lat: 22.2596562
+    lon: 114.2090718
+  drone_capacity: null
+  status: stationary
+  demand_intensity: 0.2639221588620609
